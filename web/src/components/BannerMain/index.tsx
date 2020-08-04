@@ -24,16 +24,20 @@ const BannerMain = (props: any) => {
 	const backgroundUrl = backDropPath === '' ? '' : `https://image.tmdb.org/t/p/original${backDropPath}`;
 	
 	useEffect(() => {
-		if (mediaID) {
-			axios.get<FANART>(`http://webservice.fanart.tv/v3/movies/${mediaID}?api_key=${fanartAPI}`)
-				.then(response => {
-					if (response.data.hdmovielogo) {
-						setMovieLogo(response.data.hdmovielogo);
-						return;
-					}
-					setMovieLogo(response.data.movielogo);
-				}).catch(() => '')
+		
+		async function fetchData() {
+			const movieLogo = await axios.get<FANART>(`http://webservice.fanart.tv/v3/movies/${mediaID}?api_key=${fanartAPI}`)
+
+			if (movieLogo.data.hdmovielogo) {
+				setMovieLogo(movieLogo.data.hdmovielogo);
+				return;
+			}
+			setMovieLogo(movieLogo.data.movielogo);
 		}
+
+	if (mediaID) {
+		fetchData();			
+	}
 	},[mediaID, fanartAPI]);
 	
 
@@ -46,8 +50,8 @@ const BannerMain = (props: any) => {
 					<Styles.ContentAreaContainerTitle>
 						{movieLogo.length !== 0 ? 
 							<img							
-								src={movieLogo.length === 0 ? '' : movieLogo[0].url}
-								alt="Logo"/>
+								src={movieLogo[0].url}
+								alt="Movie Logo"/>
 							:
 							''
 						}
