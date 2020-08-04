@@ -2,14 +2,13 @@ import styled from 'styled-components';
 
 export const Title = styled.h3`
   font-style: normal;
-  font-weight: normal;
-  font-size: 35px;
+  font-weight: bold;
+  font-size: 18px;
   line-height: 1;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   display: inline-block;
-  padding: 20px;
-  background: red;
-  line-height: 1;
+  padding: 18px 0 8px 10px;
+  background: none;
   border-radius: 4px;
 
   @media (max-width: 800px) {
@@ -50,6 +49,6 @@ export const VideoCardList = styled.ul`
 export const VideoCardGroupContainer = styled.section`
   color: white;
   min-height: 197px;
-  margin-left: 5%;
+  margin-left: 2%;
   margin-bottom: 16px;
 `;
