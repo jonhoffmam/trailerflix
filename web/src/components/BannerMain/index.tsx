@@ -26,7 +26,7 @@ const BannerMain = (props: any) => {
 	useEffect(() => {
 		
 		async function fetchData() {
-			const movieLogo = await axios.get<FANART>(`http://webservice.fanart.tv/v3/movies/${mediaID}?api_key=${fanartAPI}`)
+			const movieLogo = await axios.get<FANART>(`https://webservice.fanart.tv/v3/movies/${mediaID}?api_key=${fanartAPI}`)
 
 			if (movieLogo.data.hdmovielogo) {
 				setMovieLogo(movieLogo.data.hdmovielogo);
