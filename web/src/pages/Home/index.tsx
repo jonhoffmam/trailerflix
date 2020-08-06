@@ -115,7 +115,7 @@ const Home = () => {
 			id: 0,
 			title: 'Populares na Trailerflix - Filmes',
 			posters: popularMovies,
-			mediaType: 'movies',
+			mediaType: 'movie',
 		},
 		{
 			id: 1,
@@ -133,25 +133,25 @@ const Home = () => {
 			id: 3,
 			title: 'Populares na Trailerflix - Filmes Infantis',
 			posters: popularKidsMovies,
-			mediaType: 'movies'
+			mediaType: 'movie'
 		},
 	];
 
 // 	useEffect(() => {		
 // 		console.log(discoverFinal);		
-// },[discoverFinal]);
+// },[discoverFinal]);	
 	
 
-	return (
+	return (	
 		<div style={{backgroundColor: '#141414'}}>
 			<PageDefault>
 
 				<BannerMain
-					videoTitle={popularMovies.length === 0 ? '' : movieDisplayBannerMain.title}
-					backDropPath={popularMovies.length === 0 ? '' : movieDisplayBannerMain.backdrop_path}
-					mediaID={popularMovies.length === 0 ? '' : movieDisplayBannerMain.id}
-					youtubeID={youtubeID.length === 0 ? '' : youtubeID[0].key}					
-					videoDescription={popularMovies.length === 0 ? '' : movieDisplayBannerMain.overview}
+					videoTitle={movieDisplayBannerMain?.title}
+					backDropPath={movieDisplayBannerMain?.backdrop_path}
+					mediaID={movieDisplayBannerMain?.id}
+					youtubeID={youtubeID[0]?.key}					
+					videoDescription={movieDisplayBannerMain?.overview}
 				/>
 			
 				
@@ -168,7 +168,9 @@ const Home = () => {
 
 			</PageDefault>
 
-		</div>
+			
+
+		</div>	
 	)
 }
 

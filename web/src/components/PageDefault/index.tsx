@@ -8,8 +8,8 @@ const PageDefault = (props: any) => {
 	return (
 		<>
 			<Menu />
-				{children}
-			<Footer />
+				{children}				
+			<Footer />			
 		</>
 	);
 }

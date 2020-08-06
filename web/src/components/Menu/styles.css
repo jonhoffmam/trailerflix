@@ -43,16 +43,17 @@ body {
 
 .ButtonLink {
 	color: var(--white);
-	border: 1px solid var(--white);
+	height: 28px;
+	width: 28px;
 	box-sizing: border-box;
 	cursor: pointer;
-	padding: 16px 24px;
+	/* padding: 16px 24px; */
 	font-style: normal;
 	font-weight: bold;
 	font-size: 16px;
 	outline: none;
 	border-radius: 5px;
-	text-decoration: none;
+	/* text-decoration: none; */
 	display: inline-block;
 	transition: opacity .3s;
 }
@@ -62,7 +63,7 @@ body {
 }
 
 @media (max-width: 800px) {
-	a.ButtonLink {
+	.ButtonLink {
 		position: fixed;
 		left: 0;
 		right: 0;

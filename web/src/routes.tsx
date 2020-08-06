@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Home from './pages/Home';
+import MediaPage from './pages/MediaPage';
 
 
 const Routes = () => {
@@ -11,6 +12,7 @@ const Routes = () => {
 		<BrowserRouter>
 			<Switch>
 				<Route component={Home} path="/" exact/>
+				<Route component={MediaPage} path="/:mediaType/:mediaID" />				
 				<Route component={Page404} />
 			</Switch>
 		</BrowserRouter>

@@ -27,14 +27,14 @@ const Container = styled.ul`
 	}
 `;
 
-export const SliderItem = styled.li`
-	/* margin-right: 16px; */
+export const SliderItem = styled.li`	
+	align-items: center;	
 	img {
 		margin: 8px;
-		/* width: 298px;
-		height: 197px; */
+		cursor: pointer;
 		object-fit: cover;
 		border-radius: 4px;
+		align-items: center;
 	}
 `;
 

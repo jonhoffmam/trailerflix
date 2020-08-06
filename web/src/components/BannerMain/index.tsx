@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BsVolumeMute, BsVolumeUp, BsFillPlayFill, BsFillPauseFill } from 'react-icons/bs';
 import { FiInfo } from 'react-icons/fi';
-import VideoIframeResponsive from './components/VideoIframeResponsive';
+import VideoIframeResponsive from '../VideoIframeResponsive';
 import * as Styles from './styles';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 
 interface FANART {
@@ -20,6 +21,8 @@ const BannerMain = (props: any) => {
 	const [playVideo, setPlayVideo] = useState(true);
 	const [muteVideo, setMuteVideo] = useState(true);
 	const [movieLogo, setMovieLogo] = useState<FANART[]>([]);
+
+	const history = useHistory();
 	
 	const backgroundUrl = backDropPath === '' ? '' : `https://image.tmdb.org/t/p/original${backDropPath}`;
 	
@@ -79,7 +82,7 @@ const BannerMain = (props: any) => {
 							</button>
 						}
 
-							<button className="buttonInfo" >
+							<button className="buttonInfo" onClick={() => history.push(`/movie/${mediaID}`)}>
 								<span style={{height: '38px', width: '38px'}}>
 									<FiInfo style={{height: '25px', width: '25px'}} />
 								</span>
@@ -100,9 +103,7 @@ const BannerMain = (props: any) => {
 					{/* <VideoIframeResponsive
 						youtubeID={movieKey}
 					/> */}
-					<Styles.WatchButton>
-						+ Informações
-					</Styles.WatchButton>
+					
 				</Styles.ContentAreaContainerItem>
 			</Styles.ContentAreaContainer>
 			

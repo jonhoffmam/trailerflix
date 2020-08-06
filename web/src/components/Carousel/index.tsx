@@ -1,25 +1,23 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
 import { VideoCardGroupContainer, Title } from './styles';
 import Slider, { SliderItem } from './components/Slider';
-// import VideoCard from './components/VideoCard';
+
 
 const Carousel = (props: any) => {
 	const {ignoreFirstVideo, category} = props;
-	const categoryTitle = category.title;	
-	// const categoryExtraLink = category.link_extra;
-	// const videos = category.videos;
+	const categoryTitle = category.title;
+
+	const history = useHistory();
 
 	function handleSetType(posterID: number, posterMediaType: string, categoryType: string) {		
 		return (
 			categoryType === 'all' ? 
-			`https://www.themoviedb.org/${posterMediaType}/${posterID}` :
-			`https://www.themoviedb.org/${categoryType}/${posterID}`
+			history.push(`/${posterMediaType}/${posterID}`) :
+			history.push(`/${categoryType}/${posterID}`)
 		)
 	}
-
-	// categoryType === 'all' ? 
-	// 		`https://www.themoviedb.org/${poster.media_type}/${poster.id}` :
-	// 		`https://www.themoviedb.org/${categoryType}/${poster.id}`
 
 	return (
 		<VideoCardGroupContainer>
@@ -27,12 +25,7 @@ const Carousel = (props: any) => {
 				<>
 					<Title >
 						{categoryTitle}
-					</Title>
-					{/* {categoryExtraLink && 
-						<ExtraLink href={categoryExtraLink.url} target="_blank">
-							{categoryExtraLink.text}  
-						</ExtraLink>
-					} */}
+					</Title>					
 				</>
 			)}
 			<Slider>
@@ -43,13 +36,15 @@ const Carousel = (props: any) => {
 					return (
 						<SliderItem
 							key={poster.id}
-						>
-							<a 
+						>							
+							{/* <a
 								href={handleSetType(poster.id, poster.media_type, category.mediaType)}
 								rel="noopener noreferrer"
-								target="_blank" >
-								<img src={`https://image.tmdb.org/t/p/w185${poster.poster_path}`} alt={poster.title}/>
-							</a>
+								target="_blank" > */}
+								{/* <Link to={} > */}
+								<img onClick={() => handleSetType(poster.id, poster.media_type, category.mediaType)} src={`https://image.tmdb.org/t/p/w185${poster.poster_path}`} alt={poster.title}/>
+								{/* </Link> */}
+							{/* </a> */}
 						</SliderItem>
 					)
 				})}

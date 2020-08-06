@@ -1,28 +1,26 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { BsSearch } from 'react-icons/bs'
+import { Link } from 'react-router-dom';
 
-// import ButtonLink from '../ButtonLink';
-import Button from '../Button';
+// import Button from '../Button';
 
 import logo from '../../assets/logo.svg';
 import './styles.css';
 
 const Menu = () => {
-	const history = useHistory();
 
 	return (
 		<header className="Menu">
+
 			<Link to="/">
 				<img className="logo" src={logo} alt="Trailerflix"/>
 			</Link>
 
-			{/* <ButtonLink className="ButtonLink" to="/">
-				Novo Video
-			</ButtonLink> */}
+		<BsSearch className="ButtonLink"/>
 
-			<Button as="a" className="ButtonLink" onClick={() => history.push('/')}>
+			{/* <Button className="ButtonLink" to="/" >
 				Novo Video
-			</Button>
+			</Button> */}
 
 		</header>
 	);

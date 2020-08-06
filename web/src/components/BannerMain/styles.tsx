@@ -21,7 +21,7 @@ const OptionsContainer = styled.div`
 		flex-direction: row;		
 		position: relative;
 		align-items: center;
-		/* justify-content: center; */
+		justify-content: none;
 
 	span {
 		height: 40px;
@@ -32,7 +32,7 @@ const OptionsContainer = styled.div`
 		margin: 0;
 	}
 
-	.BsVolume {		
+	.BsVolume {
 		cursor: pointer;
 
 		height: 35px;
@@ -88,6 +88,10 @@ const OptionsContainer = styled.div`
 	}
 	.buttonInfo:hover {
 		background-color: rgba(109,109,110,0.5);
+	}
+
+	@media (max-width: 800px) {
+		justify-content: center;
 	}
 
 `;
